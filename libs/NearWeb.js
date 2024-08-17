@@ -73,7 +73,7 @@ class Testnet extends BaseAPI {
 }
 
 class Contracts {
-    construtor(apiInstance) {
+    constructor(apiInstance) {
         this.apiInstance = apiInstance;
     }
 
