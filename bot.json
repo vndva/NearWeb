@@ -1,0 +1,6 @@
+{
+  "bb_sync_version":"1.0",
+  "name":"hottrackerbot",
+  "csv_url":null,
+  "git_remote":"git@github.com:vndva/NearWeb.git"
+}
