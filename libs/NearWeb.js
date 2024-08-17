@@ -80,7 +80,7 @@ class Contracts {
     viewAccount(accountId, options = {}) {
         options.id = 'NEAR:contracts:view_account';
         options.method = 'query';
-        options.body = { ...options.body };
+        options.body = { ...(options.body || {}) };
         options.body['request_type'] = 'view_account';
         options.body['account_id'] = accountId;
         this.apiInstance._sendPost(options);
@@ -89,7 +89,7 @@ class Contracts {
     viewAccountChanges(accountIds = [], options = {}) {
         options.id = 'NEAR:contracts:view_account_changes';
         options.method = 'EXPERIMENTAL_changes';
-        options.body = { ...options.body };
+        options.body = { ...(options.body || {}) };
         options.body['changes_type'] = 'account_changes';
         options.body['account_ids'] = accountIds;
         this.apiInstance._sendPost(options);
@@ -98,7 +98,7 @@ class Contracts {
     callFunction(accountId, methodName, args = {}, options = {}) {
         options.id = 'NEAR:contracts:call_function';
         options.method = 'query';
-        options.body = { ...options.body };
+        options.body = { ...(options.body || {}) };
         options.body['request_type'] = 'call_function';
         options.body['method_name'] = methodName;
         options.body['account_id'] = accountId;
