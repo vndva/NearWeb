@@ -4,7 +4,7 @@ const libPrefix = '_nearwebjs';
 function onHttpSuccess() {
     try { 
         const options = JSON.parse(content);
-        return Bot.runCommand(params, { ...options });
+        return options; /* Bot.runCommand(params, { ...options }); */
     } catch (e) {
         throw new Error(e);
     }
@@ -47,7 +47,7 @@ class BaseAPI {
         HTTP.post({
             url: this.httpProvider,
             body: options.body,
-            success: this.prefix + 'onHttpSuccess ' + options.onSuccess,
+            success: this.prefix + 'onHttpSuccess', // + options.onSuccess,
             error: this.prefix + 'onHttpError',
             ...options
         });
