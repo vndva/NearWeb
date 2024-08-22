@@ -47,7 +47,7 @@ class BaseAPI {
         HTTP.post({
             url: this.httpProvider,
             body: options.body,
-            success: this.prefix + 'onHttpSuccess', // + options.onSuccess,
+            success: this.prefix + 'onHttpSuccess ' + options.onSuccess,
             error: this.prefix + 'onHttpError',
             ...options
         });
