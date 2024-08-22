@@ -103,8 +103,8 @@ class Contracts {
 }
 
 publish({
-    Mainnet: new Mainnet(),
-    Testnet: new Testnet()
+    Mainnet: Mainnet,
+    Testnet: Testnet
 });
 
 on(libPrefix + 'onHttpSuccess', onHttpSuccess);
