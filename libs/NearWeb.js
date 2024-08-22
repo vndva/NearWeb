@@ -4,7 +4,7 @@ const libPrefix = '_nearwebjs';
 function onHttpSuccess() {
     try { 
         const options = JSON.parse(content);
-        return options; /* Bot.runCommand(params, { ...options }); */
+        Bot.runCommand(params, { ...options });
     } catch (e) {
         throw new Error(e);
     }
@@ -77,32 +77,27 @@ class Contracts {
         this.apiInstance = apiInstance;
     }
 
-    viewAccount(accountId, options = {}) {
+    viewAccount(options = {}) {
         options.id = 'NEAR:contracts:view_account';
         options.method = 'query';
-        options.body = { ...(options.body || {}) };
+        options.body = { ...options.body };
         options.body['request_type'] = 'view_account';
-        options.body['account_id'] = accountId;
         this.apiInstance._sendPost(options);
     }
 
-    viewAccountChanges(accountIds = [], options = {}) {
+    viewAccountChanges(options = {}) {
         options.id = 'NEAR:contracts:view_account_changes';
         options.method = 'EXPERIMENTAL_changes';
-        options.body = { ...(options.body || {}) };
+        options.body = { ...options.body };
         options.body['changes_type'] = 'account_changes';
-        options.body['account_ids'] = accountIds;
         this.apiInstance._sendPost(options);
     }
 
-    callFunction(accountId, methodName, args = {}, options = {}) {
+    callFunction(options = {}) {
         options.id = 'NEAR:contracts:call_function';
         options.method = 'query';
-        options.body = { ...(options.body || {}) };
+        options.body = { ...options.body };
         options.body['request_type'] = 'call_function';
-        options.body['method_name'] = methodName;
-        options.body['account_id'] = accountId;
-        options.body['args_base64'] = this.apiInstance._base64Encode(JSON.stringify(args));
         this.apiInstance._sendPost(options);
     }
 }
